@@ -1,19 +1,32 @@
 import pgzrun
 
-WIDTH = 500
 HEIGHT = 500
+WIDTH = 500
 
-box = Rect((40,50),(100,100))
+box1 = Rect((100,250),(50,50))
+box2 = Rect((10,50),(50,50))
+
+box1_vx = 2
 
 def draw():
-    screen.clear()
-    screen.draw.filled_rect(box,'red')
+    screen.fill('black')
+    screen.draw.text("hello world", (10, 10), color="white")
+    screen.draw.rect(box1, "white")
+    screen.draw.filled_rect(box2, 'red')
 
 def update():
-    box.x += 5
-    if box.x > WIDTH:
-        box.x = 0
-    if box.x < 0:
-        box.x = WIDTH
+    global box1_vx
+    box1.x += box1_vx
+    if box1.x > WIDTH:
+        box1.x = 0
+    if box1.x < 0:
+        box1.x = WIDTH
+    
+    box2.y += 3
+    if box2.y > HEIGHT:
+        box2.y = 0
+
+    if box1.colliderect(box2):
+        box1_vx = -box1_vx
 
 pgzrun.go()
