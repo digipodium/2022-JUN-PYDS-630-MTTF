@@ -7,6 +7,7 @@ box1 = Rect((100,250),(50,50))
 box2 = Rect((10,50),(50,50))
 
 box1_vx = 2
+music.play('song.mp3')
 
 def draw():
     screen.fill('black')
@@ -28,5 +29,6 @@ def update():
 
     if box1.colliderect(box2):
         box1_vx = -box1_vx
+        sounds.hit.play()
 
 pgzrun.go()
