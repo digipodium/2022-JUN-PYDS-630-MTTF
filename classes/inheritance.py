@@ -1,8 +1,3 @@
-
-
-from pyparsing import col
-
-
 class Person:
     
     def __init__(self, name, gender="female"):
@@ -47,8 +42,6 @@ class Coder(Student):
     
     def add_language(self, lang):
         self.prglangs.append(lang)
-
-
 
 
 if __name__ == "__main__":
